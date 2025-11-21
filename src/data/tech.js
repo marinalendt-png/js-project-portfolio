@@ -1,0 +1,14 @@
+export const tech = [
+  "HTML",
+  "CSS",
+  "Flexbox",
+  "Grid",
+  "JavaScript",
+  "JSX",
+  "React",
+  "Node.js",
+  "Web Accessibility",
+  "APIs",
+  "GitHub",
+  "Figma",
+];

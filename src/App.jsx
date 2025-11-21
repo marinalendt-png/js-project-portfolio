@@ -1,8 +1,29 @@
+import React from "react";
+
+import { HeroSection } from "./sections/HeroSection";
+import { AboutSection } from "./sections/AboutSection";
+import { TechSection } from "./sections/TechSection";
+import { ProjectsSection } from "./sections/ProjectsSection";
+import { SkillsSection } from "./sections/SkillsSection";
+import { ArticleSection } from "./sections/ArticleSection";
+import { ContactSection } from "./sections/ContactSection";
+// import { Buttons } from "./components/Buttons";
+
+
+
 export const App = () => {
   return (
     <>
-      <h1>Portfolio</h1>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem, laborum! Maxime animi nostrum facilis distinctio neque labore consectetur beatae eum ipsum excepturi voluptatum, dicta repellendus incidunt fugiat, consequatur rem aperiam.</p>
+      <HeroSection />
+      <AboutSection />
+      <TechSection />
+      <ProjectsSection />
+      <SkillsSection />
+      <ArticleSection />
+      <ContactSection />
     </>
-  )
+  );
 }
+
+
+
