@@ -1,7 +1,7 @@
 import React from "react";
 
-import { HeroSection } from "./sections/HeroSection";
-import { AboutSection } from "./sections/AboutSection";
+import { GlobalStyles } from "./styles/GlobalStyles";
+import { HeaderSection } from "./sections/HeaderSection";
 import { TechSection } from "./sections/TechSection";
 import { ProjectsSection } from "./sections/ProjectsSection";
 import { SkillsSection } from "./sections/SkillsSection";
@@ -14,8 +14,8 @@ import { ContactSection } from "./sections/ContactSection";
 export const App = () => {
   return (
     <>
-      <HeroSection />
-      <AboutSection />
+      <GlobalStyles />
+      <HeaderSection />
       <TechSection />
       <ProjectsSection />
       <SkillsSection />
