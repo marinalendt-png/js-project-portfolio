@@ -1,23 +1,19 @@
 import React from "react";
-import { projects } from "../data/projects"; //hämtar saker vi behöver, här en låda med lappar med info om våra projekt
-import { ProjectCard } from "../components/ProjectCard"; // här är receptet för hur ett projektkort ska se ut, och hämtas från compontents. 
+import { projects } from "../data/projects";
+import { ProjectCard } from "../components/ProjectCard";
 import styled from "styled-components";
 import IconWebSVG from "../assets/icon-web.svg";
 import IconGithubSVG from "../assets/icon-github.svg";
 import IconArrowDownSVG from "../assets/icon-arrow-down.svg";
 
-
-
-
-//här hämtar vi alla projekt och skapar ett kort per projekt. "Vi bygger ett rum till ett hus". Först rubrik, sen tar vi alla projekt från projects-lådan och skapar ett nytt projectcard för varje projekt. datan skickas in i kortet. 
 export const ProjectsSection = () => {
   return (
     <Wrapper>
       <Title>Featured Projects</Title>
       <ProjectsGrid>
         {projects.map((project, index) => (
-          <ProjectCardSection key={index}>
-            <ProjectImage key={project.title} src={project.image} alt={project.title} />
+          <ProjectCardSection key={index} role="group" aria-label={`Project: ${project.title}`}>
+            <ProjectImage key={project.title} src={project.image} alt={`${project.title} picture showing project`} />
             <ProjectInfo>
               <TechTags>
                 {project.tech.map((tech, idx) => (
@@ -29,10 +25,10 @@ export const ProjectsSection = () => {
 
               <Buttons>
                 <ButtonPrimary as="a" href={project.liveDemo} target="blank" rel="noopener noreferrer">
-                  <IconWeb src={IconWebSVG} alt="Live demo" /> Live demo
+                  <IconWeb src={IconWebSVG} alt="" aria-hidden="true" /> Live demo
                 </ButtonPrimary>
-                <ButtonPrimary as="a" href={project.viewCode} target="blank" rel="noopener noreferrer">  {/*öppnar i ny flik samt säkerhetsinställning vid öppning av nya filer */}
-                  <IconGithub src={IconGithubSVG} alt="View Code" /> View Code
+                <ButtonPrimary as="a" href={project.viewCode} target="blank" rel="noopener noreferrer">
+                  <IconGithub src={IconGithubSVG} alt="" aria-hidden="true" /> View Code
                 </ButtonPrimary>
               </Buttons>
             </ProjectInfo>
@@ -41,7 +37,7 @@ export const ProjectsSection = () => {
       </ProjectsGrid>
 
       <SeeMoreButton>
-        <IconArrowDown src={IconArrowDownSVG} />
+        <IconArrowDown src={IconArrowDownSVG} alt="See more projects here" />
         See more projects
       </SeeMoreButton>
     </Wrapper>
@@ -50,6 +46,7 @@ export const ProjectsSection = () => {
 
 const Wrapper = styled.section`
   width: 100%;
+  margin: 0 auto;
   padding: 64px 16px;
   display: flex;
   flex-direction: column;
@@ -61,49 +58,111 @@ const Title = styled.h2`
   font-size: 48px;
   font-weight: 700;
   text-align: center;
-  color: #000;
+  color: rgba(0, 0, 0, 1);
 `;
 
 const ProjectsGrid = styled.div`
-display: flex;
-flex-direction: column;
-gap: 64px;
-width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 64px;
+  width: 100%;
+
+  /* Desktop */
+  @media (min-width: 1024px) {
+    gap: 128px; 
+    align-items: stretch; 
+  }
 `;
 
 const ProjectCardSection = styled.div`
   width: 100%;
-  max-width: 343px;
   display: flex;
   flex-direction: column;
   gap: 32px;
+
+  /* Tablet */
+  @media (min-width: 768px) and (max-width: 1023px) {
+    max-width: 696px; 
+    margin: 0 auto; 
+    align-items: center;
+  }
+
+  /* Desktop */
+  @media (min-width: 1024px) {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 64px;
+
+  /* change direction every each time */
+  &:nth-child(even) {
+    flex-direction: row-reverse; 
+    }
+  }
 `;
 
 const ProjectImage = styled.img`
   width: 100%;
-  aspect-ratio: 343/479;
+  height: auto; 
+  max-width: 343px;
+  max-height: 479px;
   border-radius: 12px;
   object-fit: contain;
+
+  /* Tablet */
+  @media (min-width: 768px) {
+    max-width: 696px;
+  }
+
+  /* Desktop */
+  @media (min-width: 1024px) {
+   max-width: 479px;
+  }
 `;
 
 const ProjectInfo = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 32px;
+  max-width: 479px; 
+
+  * Tablet */ /* Centers the content */
+  @media (min-width: 768px) {
+    margin: 0 auto; 
+    align-items: center;
+    text-align: center;
+  }
+
+  /* Desktop */ /* back to the left */
+  @media (min-width: 1024px) {
+   align-items: flex-start;
+   text-align: left; 
+   margin: 0; 
+  }
 `;
 
-const TechTags = styled.div`
+const TechTags = styled.ul`
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
 `;
 
-const Tag = styled.div`
-  background: #fff;
-  border: 1px solid #000;
+const Tag = styled.li`
+  display: inline-flex;
+  align-items: center; 
+  justify-content: center; 
+  min-width: 71px;
+  min-height: 24px;
+  background: rgba(255, 255, 255, 1);
+  border: 1px solid rgba(0, 0, 0, 1);
   border-radius: 4px;
   padding: 2px 6px;
   font-size: 14px;
+
+  * Tablet */ 
+  @media (min-width: 768px) {
+    min-width: 130px;
+  }
 `;
 
 const ProjectTitle = styled.h3`
@@ -120,20 +179,38 @@ const Buttons = styled.div`
   display: flex;
   flex-direction: column;
   gap: 8px;
+
+  /* Tablet */ 
+  @media (min-width: 768px) {
+    margin: 0 auto;
+    align-items: center;
+  }
+
+  /* Desktop */ 
+  @media (min-width: 1024px) {
+    align-items: flex-start;
+    margin: 0;
+  }
 `;
 
 const ButtonPrimary = styled.button`
+  width: 271px;
   display: flex;
-  align-items: center;
+  align-items: center; 
   gap: 8px;
   padding: 12px 16px;
-  background: #000;
-  color: #fff;
+  background: rgba(0, 0, 0, 1);
+  color: rgba(255, 255, 255, 1);
   border-radius: 12px;
   border: none;
   cursor: pointer;
   font-weight: 500;
   text-decoration: none;
+
+   &:focus-visible {
+    outline: 3px solid #f39c12;
+    outline-offset: 2px;
+  }
 `;
 
 const IconWeb = styled.img`
@@ -157,11 +234,16 @@ const SeeMoreButton = styled.button`
   align-items: center;
   gap: 8px;
   padding: 12px 16px;
-  border: 2px solid #000;
+  border: 2px solid rgba(0, 0, 0, 1);
   border-radius: 12px;
-  background: #fff;
+  background: rgba(255, 255, 255, 1);
   font-weight: 500;
   cursor: pointer;
+
+   &:focus-visible {
+    outline: 3px solid #f39c12;
+    outline-offset: 2px;
+  }
 `;
 
 const IconArrowDown = styled.img`
