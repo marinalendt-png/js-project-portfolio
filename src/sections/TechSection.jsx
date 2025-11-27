@@ -4,7 +4,7 @@ import styled from "styled-components";
 
 export const TechSection = () => {
   return (
-    <Wrapper>
+    <Wrapper aria-label="Tech I use">
       <h2>Tech</h2>
       <p>{tech.join(", ")} </p>
     </Wrapper>
@@ -13,7 +13,7 @@ export const TechSection = () => {
 
 const Wrapper = styled.section`
   width: 100%;
-  background: #000;
+  background: rgba(0, 0, 0, 1) ;
   display: flex;
   padding: 64px 16px;
   flex-direction: column;
@@ -21,7 +21,7 @@ const Wrapper = styled.section`
   gap: 16px;
 
 h2 {
-  color: #FFF;
+  color: rgba(255, 255, 255, 1);
   text-align: center; 
   font-size: 60px;
   font-weight: 700;
@@ -29,13 +29,11 @@ h2 {
 
 p {
 
-color: #FFF;
+color: rgba(255, 255, 255, 1);
 text-align: center;
 font-size: 16px;
 font-weight: 400;
 line-height: 1.4;
-max-width: 343 px;
-word-wrap: break-word;
+max-width: 343px;
 }
-
 `;
