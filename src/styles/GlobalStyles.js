@@ -8,10 +8,17 @@ export const GlobalStyles = createGlobalStyle`
 }  
 
 body {
-  background: #FFF;
+  background: rgba(255, 255, 255, 1);
   font-family: "poppins", sans-serif;
-  max-width: 375px;
-  margin: 0 auto;
+  width: 100%;
+  scroll-behavior: smooth;
+}
+
+/* List without bullets */
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
 =======/* MEDIA QUERIES */ ========
@@ -25,9 +32,9 @@ body {
 }
 /* Desktop */
 @media (min-width: 1025px) {
-body {
-max-width: 1440px;
-margin: 0 auto;
+  body {
+    max-width: 1440px;
+    margin: 0 auto;
 }
 
 h1 {
