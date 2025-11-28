@@ -57,7 +57,9 @@ const SkillsGrid = styled.ul`
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     justify-items: center;
-    gap: 32px;
-    text-align: left;
+    text-align: flex-start;
+    gap: 24px 16px;
+    max-width: 1200px;
+    margin: 0 auto;
   }
 `;
