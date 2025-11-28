@@ -56,7 +56,7 @@ const Image = styled.img`
 const ContactInfo = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: left;
+  align-items: flex-start;
   gap: 8px;
 
   /* Tablet och desktop */
