@@ -32,6 +32,7 @@ export const ContactSection = () => {
 };
 
 const Wrapper = styled.section`
+  width: 100%;
   background: rgba(0, 0, 0, 1);
   color: rgba(255, 255, 255, 1);
   display: flex;
@@ -55,8 +56,13 @@ const Image = styled.img`
 const ContactInfo = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: left;
   gap: 8px;
+
+  /* Tablet och desktop */
+  @media (min-width: 768px) {
+    text-align: center;
+  }
 `;
 
 const Name = styled.p`

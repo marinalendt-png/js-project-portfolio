@@ -33,7 +33,7 @@ body {
 /* Desktop */
 @media (min-width: 1025px) {
   body {
-    max-width: 1440px;
+    max-width: 1600px;
     margin: 0 auto;
 }
 

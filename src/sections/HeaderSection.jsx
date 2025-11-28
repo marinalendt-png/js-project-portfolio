@@ -8,7 +8,7 @@ export const HeaderSection = () => {
   return (
     <Wrapper>
       <TextBox>
-        <p>Hi there, I´m</p>
+        <p>Hi there, I´m</p> {/* Used p here instead of h3 for accessibility */}
         <h1>Marina Lendt</h1>
       </TextBox>
 
@@ -33,7 +33,8 @@ const Wrapper = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 24px;
+  justify-content: flex-start;
+  gap: 16px;
   padding: 64px 16px;
   width: 100%;
 
@@ -58,12 +59,11 @@ const TextBox = styled.div`
   gap: 24px;
 
   p, h1 {
-    color: var(--color-text-primary);
+    color: rgba(0, 0, 0, 1);
   }
   p {
     font-size: 24px;
     font-weight: 500;
-    line-height: 28px;
     margin: 0;
   }
 
@@ -78,13 +78,11 @@ const TextBox = styled.div`
   @media (min-width: 768px) {
     p {
       font-size: 24px;
-      text-align: left;
     }
 
     h1 {
       font-size: 52px;
       line-height: 100px;
-      text-align: left;
     }
   }   
 
@@ -98,34 +96,35 @@ const TextBox = styled.div`
 
     h1 {
       font-size: 100px;
-      line-height: 100px;
     }
   }
 `;
 
 const ContentWrapper = styled.div`
   display: flex;
-  flex-direction: column-reverse;  /* Mobile: h3 above the img */
+  flex-direction: column;  /* Mobile: h3 above the img */
   align-items: center;
   gap: 24px;
 
-  h3 {
+  h2 {
     text-align: center;
     font-size: 20px;
     margin: 0;
   }
 
   @media (min-width: 768px) {
-    flex-direction: column; /* Tablet/Desktop: h3 under the img */
+    flex-direction: column-reverse; /* h2 under the img */
 
     h2 {
-      text-align: left;
+      text-align: center;
       font-size: 24px;
-      margin-top: 24px; /* avstånd från bilden */
+      margin-top: 24px;
     }
   }
 
   @media (min-width: 1024px) {
+  flex-direction: column-reverse; /* h2 under the img */
+
     h2 {
       text-align: center;
       font-size: 30px;
@@ -138,8 +137,8 @@ const ImageBox = styled.div`
   position: relative; 
   width: 100%;
   max-width: 315px;
-  height: 171px;
   margin: 0 auto;
+  aspect-ratio: 315 / 171; 
   
   img {
     border-radius: 12px;
@@ -175,33 +174,33 @@ const ImageBox = styled.div`
     height: 154px;                      /* ligger bakom mittenbilden */
   }
     
-    /* Tablet */
-    @media (min-width: 768px) {
+  /* Tablet */
+  @media (min-width: 768px) {
       max-width: 500px;
-      height: 210px;
+      aspect-ratio: 500 / 277;
 
-      img:nth-child(1) {
+    img:nth-child(1) {
         width: 260px;
         height: 277px; 
         left: -70px;
-      }
+    }
 
-      img:nth-child(2) {
+    img:nth-child(2) {
         width: 260px;
         height: 277px; 
-      }
+    }
 
-      img:nth-child(3) {
+    img:nth-child(3) {
         width: 260px;
         height: 277px;
         right: -70px;
-      }
     }
+  }
 
     /* Desktop */
     @media (min-width: 1024px) {
       max-width: 1100px;
-      height: 382px; 
+      aspect-ratio: 1100 / 382;
 
       img:nth-child(1) {
       width: 358px;
@@ -224,17 +223,13 @@ const ImageBox = styled.div`
 
 const TextBoxInfo = styled.div`
   font-size: 16px;
-  text-align: center;
+  text-align: left;
   gap: 24px;
   width: 100%;
   max-width: 1000px;
 
-  p {
-    line-height: 24px;
-  }
-
   @media (min-width: 768px) {
-      text-align: left;
+      text-align: center;
       max-width: 700px;
     }
 
@@ -242,7 +237,6 @@ const TextBoxInfo = styled.div`
       text-align: center;
       max-width: 1000px;
       font-size: 18px;
-      margin-top: 30px;
     }
   }
   `;
