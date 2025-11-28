@@ -51,7 +51,13 @@ const Wrapper = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: flex-start;
   gap: 64px;
+
+  @media (min-width: 1024px) {
+    padding: 128px 0;
+    gap: 128px;
+  }
 `;
 
 const Title = styled.h2`
@@ -59,18 +65,23 @@ const Title = styled.h2`
   font-weight: 700;
   text-align: center;
   color: rgba(0, 0, 0, 1);
+
+  @media (min-width: 1024px) {
+    font-size: 80px;
+    }
 `;
 
 const ProjectsGrid = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 64px;
+  justify-content: center;
+  align-items: center;
+  gap: 32px;
   width: 100%;
 
   /* Desktop */
   @media (min-width: 1024px) {
-    gap: 128px; 
-    align-items: stretch; 
+    gap: 125px; 
   }
 `;
 
@@ -126,7 +137,7 @@ const ProjectInfo = styled.div`
   gap: 32px;
   max-width: 479px; 
 
-  * Tablet */ /* Centers the content */
+  /* Tablet */ /* Centers the content */
   @media (min-width: 768px) {
     margin: 0 auto; 
     align-items: center;
@@ -157,9 +168,9 @@ const Tag = styled.li`
   border: 1px solid rgba(0, 0, 0, 1);
   border-radius: 4px;
   padding: 2px 6px;
-  font-size: 14px;
+  font-size: 16px;
 
-  * Tablet */ 
+  /* Tablet */ 
   @media (min-width: 768px) {
     min-width: 130px;
   }
@@ -168,11 +179,21 @@ const Tag = styled.li`
 const ProjectTitle = styled.h3`
   font-size: 24px;
   font-weight: 500;
+
+  /* Desktop */ 
+    @media (min-width: 1024px) {
+      font-size: 30px;
+  }
 `;
 
 const ProjectDescription = styled.p`
   font-size: 16px;
   line-height: 1.4;
+
+   /* Desktop */ 
+    @media (min-width: 1024px) {
+      font-size: 18px;
+  }
 `;
 
 const Buttons = styled.div`
@@ -197,8 +218,8 @@ const ButtonPrimary = styled.button`
   width: 271px;
   display: flex;
   align-items: center; 
-  gap: 8px;
-  padding: 12px 16px;
+  gap: 16px;
+  padding: 16px 16px;
   background: rgba(0, 0, 0, 1);
   color: rgba(255, 255, 255, 1);
   border-radius: 12px;
@@ -216,42 +237,35 @@ const ButtonPrimary = styled.button`
 const IconWeb = styled.img`
   width: 24px;
   height: 24px;
-  background-image: url(${IconWebSVG.default});
-  background-size: cover;
-  background-repeat: no-repeat;
 `;
 
 const IconGithub = styled.img`
   width: 24px;
   height: 24px;
-  background-image: url(${IconGithubSVG});
-  background-size: cover;
-  background-repeat: no-repeat;
 `;
 
 const SeeMoreButton = styled.button`
+  width: 271px;
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 16px;
   padding: 12px 16px;
   border: 2px solid rgba(0, 0, 0, 1);
   border-radius: 12px;
   background: rgba(255, 255, 255, 1);
+  font-size: 18px;
   font-weight: 500;
   cursor: pointer;
 
-   &:focus-visible {
+  &:focus-visible {
     outline: 3px solid #f39c12;
     outline-offset: 2px;
   }
 `;
 
 const IconArrowDown = styled.img`
-  width: 24px;
-  height: 24px;
-  background-image: url(${IconArrowDownSVG});
-  background-size: cover;
-  background-repeat: no-repeat;
+  width: 30px;
+  height: 30px;
 `;
 
 

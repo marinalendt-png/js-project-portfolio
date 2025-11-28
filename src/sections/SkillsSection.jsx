@@ -31,18 +31,12 @@ const Title = styled.h2`
   font-size: 48px;
   font-weight: 700;
   text-align: center;
-  line-height: 44px; 
-
-  /* Tablet */
-  @media (min-width: 768px) {
-    font-size: 48px;
-    line-height: 56px;
+  line-height: 56px; 
   }
 
   /* Desktop */
   @media (min-width: 1024px) {
-    font-size: 56px;
-    line-height: 64px;
+    font-size: 80px;
   }
 `;
 
@@ -52,7 +46,7 @@ const SkillsGrid = styled.ul`
   align-items: flex-start;
   gap: 16px;
 
-    /* Tablet */
+  /* Tablet */
   @media (min-width: 768px) and (max-width: 1023px) {
     align-items: center;
     text-align: center;
@@ -64,6 +58,6 @@ const SkillsGrid = styled.ul`
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     justify-items: center;
     gap: 32px;
-    text-align: center;
+    text-align: left;
   }
 `;
