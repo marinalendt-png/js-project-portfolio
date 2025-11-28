@@ -1,8 +1,7 @@
 import ProjectImage1 from "../assets/business-site.png";
 import ProjectImage2 from "../assets/recipe-library.png";
-import ProjectImage3 from "../assets/wether-app.png";
+import ProjectImage3 from "../assets/weather-app.png";
 import ProjectImage4 from "../assets/quiz-app.png";
-import TestBild from "../assets/test-bild.png";
 
 export const projects = [
   {
@@ -24,7 +23,7 @@ export const projects = [
   },
 
   {
-    image: TestBild,
+    image: ProjectImage3,
     title: "Weather App",
     description: "This was a very fun mob-programming project. A weather app were we used real-live API from SMHI",
     tech: ["HTML", "CSS", "API", "JavaScript", "TypeScript", "Mob-programming"],
