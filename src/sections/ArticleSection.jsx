@@ -60,7 +60,9 @@ const SectionTitle = styled.h2`
 const ArticlesGrid = styled.ul`
   display: flex;
   flex-direction: column;
+  justify-content: center;
   gap: 48px; 
+  margin: 0 auto;
 
   @media (min-width: 768px) {
     gap: 64px;

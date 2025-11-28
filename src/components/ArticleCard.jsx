@@ -34,6 +34,11 @@ const CardWrapper = styled.article`
     max-width: 100%;
     gap: 32px;
   }
+  /* Desktop */
+  @media (min-width: 1024px) {
+    gap: 125px;
+  }
+  /
 `;
 
 const ImageBox = styled.div`
