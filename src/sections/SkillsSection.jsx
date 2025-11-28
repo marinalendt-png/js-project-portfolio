@@ -49,10 +49,10 @@ const SkillsGrid = styled.ul`
   /* Tablet */
   @media (min-width: 768px) and (max-width: 1023px) {
     align-items: center;
-    text-align: center;
+    text-align: center; 
   }
 
-  /* Desktop  */
+  /* Desktop */
   @media (min-width: 1024px) {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));

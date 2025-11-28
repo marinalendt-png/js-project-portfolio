@@ -30,11 +30,13 @@ const SectionWrapper = styled.section`
   padding: 64px 16px;
   background-color: rgba(255, 255, 255, 1);
 
+  /* Tablet */
    @media (min-width: 768px) {
    padding: 64px 24px; 
     gap: 64px;
   }
 
+  /* Desktop */
   @media (min-width: 1024px) {
     padding: 128px 32px;
     gap: 128px;
@@ -48,10 +50,12 @@ const SectionTitle = styled.h2`
   color: rgba(0, 0, 0, 1);
   line-height: 44px;
 
+  /* Tablet */
   @media (min-width: 768px) {
     font-size: 48px;
   }
 
+  /* Desktop */
   @media (min-width: 1024px) {
     font-size: 80px;
   }
@@ -64,10 +68,12 @@ const ArticlesGrid = styled.ul`
   gap: 48px; 
   margin: 0 auto;
 
+  /* Tablet */
   @media (min-width: 768px) {
     gap: 64px;
   }
 
+  /* Desktop */ 
   @media (min-width: 1024px) {
     gap: 96px;
   }

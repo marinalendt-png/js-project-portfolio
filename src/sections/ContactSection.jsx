@@ -61,7 +61,7 @@ const ContactInfo = styled.div`
 
   /* Tablet och desktop */
   @media (min-width: 768px) {
-    text-align: center;
+    align-items: center;
   }
 `;
 

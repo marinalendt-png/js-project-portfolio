@@ -100,7 +100,7 @@ const DateTag = styled.time`
 const CardTitle = styled.h3`
   font-size: 24px;
   font-weight: 500;
-  color: black;
+  color: rgba(0, 0, 0, 1);
   line-height: 24px;
 
   @media (min-width: 1024px) {

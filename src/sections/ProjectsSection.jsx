@@ -31,6 +31,7 @@ const Wrapper = styled.section`
   align-items: center;
   gap: 64px;
 
+  /* Desktop */
   @media (min-width: 1024px) {
     padding: 128px 0;
     gap: 128px;

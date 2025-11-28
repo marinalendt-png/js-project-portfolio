@@ -147,31 +147,34 @@ const ImageBox = styled.div`
     top:0;
   }
 
+/* place to the left and places child 1 behind the central img */ 
   img:nth-child(1) {
-    left: 0;                      /* placera till vänster */
+    left: 0;                      
     transform: rotate(-5deg);
     transform-origin: top right;
     z-index: 1;  
     width: 144px;
-    height: 154px;                 /* ligger bakom mittenbilden */
+    height: 154px;    
   }
     
+  /* central img */
   img:nth-child(2) {
     left: 50%; 
-    transform: translateX(-50%) rotate(0deg);   /* centrerar mittenbilden */
+    transform: translateX(-50%) rotate(0deg);   
     transform-origin: center center;
     z-index: 3;
     width: 144px;
     height: 154px;  
   }
 
+  /* place to the right and places child 3 behind the central img */ 
   img:nth-child(3) {
-    right: 0;                     /* placera till höger */
+    right: 0;                   
     transform: rotate(5deg);
     transform-origin: top left;
     z-index: 1;
     width: 144px;
-    height: 154px;                      /* ligger bakom mittenbilden */
+    height: 154px;                 
   }
     
   /* Tablet */
@@ -229,14 +232,14 @@ const TextBoxInfo = styled.div`
   max-width: 1000px;
 
   @media (min-width: 768px) {
-      text-align: center;
-      max-width: 700px;
+    text-align: center;
+    max-width: 700px;
     }
 
-    @media (min-width: 1024px) {
-      text-align: center;
-      max-width: 1000px;
-      font-size: 18px;
-    }
+  @media (min-width: 1024px) {
+    text-align: center;
+    max-width: 1000px;
+    font-size: 18px;
   }
-  `;
+}
+`;
