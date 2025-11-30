@@ -48,6 +48,7 @@ const Wrapper = styled.section`
 
   p {
     font-size: 18px;
+    max-width: 782px;
    }
   }
 `;

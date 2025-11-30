@@ -19,10 +19,6 @@ export const ArticleSection = ({ data }) => {
   );
 }
 
-//ArticleSection är en förälder som har en hel låda med articles. 
-//ArticleCard är ett barn som får en artikel i taget via props= här data. 
-
-
 const SectionWrapper = styled.section`
   display: flex;
   flex-direction: column;
@@ -38,7 +34,7 @@ const SectionWrapper = styled.section`
 
   /* Desktop */
   @media (min-width: 1024px) {
-    padding: 128px 32px;
+    padding: 128px 128px;
     gap: 128px;
   }
 `;

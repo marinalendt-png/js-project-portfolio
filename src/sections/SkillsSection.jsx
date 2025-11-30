@@ -32,7 +32,6 @@ const Title = styled.h2`
   font-weight: 700;
   text-align: center;
   line-height: 56px; 
-  }
 
   /* Desktop */
   @media (min-width: 1024px) {

@@ -38,11 +38,12 @@ const CardWrapper = styled.div`
   flex-direction: column;
   gap: 32px;
 
+  /*  Desktop */
   @media (min-width: 1024px) {
     flex-direction: row;
-    align-items: flex-start;
-    justify-content: flex-start;
-    gap: 125px;
+    align-items: center;
+    justify-content: center;
+    gap: 80px;
 
     &:nth-child(even) {
       flex-direction: row-reverse;
@@ -55,13 +56,16 @@ const ProjectImage = styled.img`
   max-width: 343px;
   max-height: 479px;
   border-radius: 12px;
-  object-fit: contain;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  object-fit: cover;
 
+  /* Tablet */
   @media (min-width: 768px) {
     max-width: 696px;
     margin: 0 auto;
   }
 
+   /* Desktop */
   @media (min-width: 1024px) {
     max-width: 479px;
     flex-shrink: 0;
@@ -74,13 +78,16 @@ const ProjectInfo = styled.div`
   gap: 32px;
   width: 100%;
 
-   @media (min-width: 768px) {
+  /* Tablet */
+  @media (min-width: 768px) {
     align-items: flex-start;
     text-align: left;
     width: 100%; 
     margin: 0;
     max-width: 479px;
   }
+
+  /* Desktop */
   @media (min-width: 1024px) {
     max-width: 580px;
   }
@@ -109,6 +116,7 @@ const ProjectTitle = styled.h3`
   font-size: 24px;
   font-weight: 500;
 
+  /* Desktop */
   @media (min-width: 1024px) {
     font-size: 30px;
   }
@@ -118,6 +126,7 @@ const ProjectDescription = styled.p`
   font-size: 16px;
   line-height: 1.4;
 
+  /* Desktop */
   @media (min-width: 1024px) {
     font-size: 18px;
   }

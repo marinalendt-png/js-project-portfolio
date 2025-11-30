@@ -33,7 +33,8 @@ const Wrapper = styled.section`
 
   /* Desktop */
   @media (min-width: 1024px) {
-    padding: 128px 0;
+    max-width: 1184px;
+    padding: 128px 128;
     gap: 128px;
   }
 `;
@@ -58,8 +59,7 @@ const ProjectsGrid = styled.div`
 
   /* Desktop */
   @media (min-width: 1024px) {
-    gap: 125px; 
-    align-items: flex-start;
+    gap: 125px;
   }
 `;
 

@@ -11,4 +11,5 @@ export const tech = [
   "APIs",
   "GitHub",
   "Figma",
+  "Mob-programming",
 ];

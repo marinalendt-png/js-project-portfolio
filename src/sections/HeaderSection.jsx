@@ -86,7 +86,7 @@ const TextBox = styled.div`
     }
   }   
 
-    /* Desktop */
+  /* Desktop */
   @media (min-width: 1024px) {
     max-width: 1100px;
 
@@ -102,7 +102,7 @@ const TextBox = styled.div`
 
 const ContentWrapper = styled.div`
   display: flex;
-  flex-direction: column;  /* Mobile: h3 above the img */
+  flex-direction: column;  /* h2 above the img */
   align-items: center;
   gap: 24px;
 
@@ -126,6 +126,7 @@ const ContentWrapper = styled.div`
   flex-direction: column-reverse; /* h2 under the img */
 
     h2 {
+      max-width: 1100px;
       text-align: center;
       font-size: 30px;
       margin-top: 40px;
@@ -147,7 +148,7 @@ const ImageBox = styled.div`
     top:0;
   }
 
-/* place to the left and places child 1 behind the central img */ 
+  /* place to the left and places child 1 behind the central img */ 
   img:nth-child(1) {
     left: 0;                      
     transform: rotate(-5deg);

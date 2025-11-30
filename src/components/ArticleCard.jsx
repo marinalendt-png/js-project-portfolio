@@ -23,36 +23,38 @@ export const ArticleCard = ({ data }) => {
 const CardWrapper = styled.article`
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 32px;
   width: 100%;
-  max-width: 327px; 
+  margin-top: 64px;
 
   /* Tablet */
   @media (min-width: 768px) {
     flex-direction: row;
     align-items: flex-start; 
-    max-width: 100%;
     gap: 32px;
   }
+
   /* Desktop */
   @media (min-width: 1024px) {
     gap: 125px;
   }
-  /
 `;
 
 const ImageBox = styled.div`
   width: 327px;
   height: 200px; 
+  flex-shrink: 0;
 
+  /* Tablet */
   @media (min-width: 768px) {
-    width: 380px;
+    width: 200px;
     height: 338px;
     flex-shrink: 0;
   }
 
+  /* Desktop */
   @media (min-width: 1024px) {
-    width: 379px;
+    width: 479px;
     height: 311px;
   }
 `;
@@ -70,7 +72,7 @@ const TextBox = styled.div`
   gap: 32px;
   text-align: left;
   font-size: 16px;
-
+  
   /* Tablet */
   @media (min-width: 768px) {
     padding-left:0;
@@ -103,6 +105,7 @@ const CardTitle = styled.h3`
   color: rgba(0, 0, 0, 1);
   line-height: 24px;
 
+  /* Desktop */
   @media (min-width: 1024px) {
     font-size: 30px;
   }
