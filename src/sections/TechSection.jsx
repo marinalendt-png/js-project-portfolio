@@ -6,7 +6,11 @@ export const TechSection = () => {
   return (
     <Wrapper aria-label="Tech I use">
       <h2>Tech</h2>
-      <p>{tech.join(", ")} </p>
+      <TechList>
+        {tech.map((item) => (
+          <TechItem key={item}>{item}</TechItem>
+        ))}
+      </TechList>
     </Wrapper>
   );
 };
@@ -27,28 +31,25 @@ const Wrapper = styled.section`
     font-size: 60px;
     font-weight: 700;
   }
+  `;
 
-  p {
+const TechList = styled.ul`
+  display: flex;
+  margin-top: 16px;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  max-width: 900px;
+  `;
 
-    color: rgba(255, 255, 255, 1);
-    text-align: center;
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 1.4;
-    max-width: 343px;
-  }
+const TechItem = styled.li`
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  transition: background 0.2s ease, transform 0.2s ease;
 
-  /* Desktop */
-  @media (min-width: 1024px) {
-    padding: 128px 0;
-
-  h2 {
-      font-size: 80px;
-   }
-
-  p {
-    font-size: 18px;
-    max-width: 782px;
-   }
-  }
 `;

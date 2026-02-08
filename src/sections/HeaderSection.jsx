@@ -8,23 +8,12 @@ export const HeaderSection = () => {
   return (
     <Wrapper>
       <TextBox>
-        <p>Hi there, I´m</p> {/* Used p here instead of h3 for accessibility */}
         <h1>Marina Lendt</h1>
+        <h2>Frontend Developer</h2>
       </TextBox>
-
-      <ContentWrapper>
-        <h2>Frontend Developer in training. I love teamwork and like building friendly, accessible websites</h2>
-        <ImageBox>
-          <img src={picture1} alt="Picture of nature" />
-          <img src={picture2} alt="Profile picture" />
-          <img src={picture3} alt="Picture of a computer" />
-        </ImageBox>
-      </ContentWrapper>
-
-      <TextBoxInfo>
-        <p>I am a nurse who, changed my career to web development and discoverd how rewarding it is to create solutions that work. Teamwork is where I really preform at my best - my experience in both healthcare and elite sports has given med strong collaboration skills. </p>
-      </TextBoxInfo>
-
+      <ImageBox>
+        <Avatar src={picture2} alt="Profile picture" />
+      </ImageBox>
     </Wrapper>
   );
 };
@@ -33,19 +22,23 @@ const Wrapper = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
-  gap: 16px;
+  justify-content: center;
+  gap: 24px;
   padding: 64px 16px;
   width: 100%;
 
   /* Tablet */
   @media (min-width: 768px) {
-    padding: 64px 24px;
+    flex-direction: row;
+    align-items: center;
+    padding: 96px 24px;
+    gap: 48p;x;
   }
 
   /* Desktop */
   @media (min-width: 1024px) {
     padding: 128px 0 64px 0;
+    gap: 80px;
   }
 `;
 
@@ -53,194 +46,72 @@ const TextBox = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  max-width: 740px;
+  max-width: 600px;
   text-align: center;
-  align-items: center;
-  gap: 24px;
+  gap: 16px;
 
-  p, h1 {
+  h1, h2 {
     color: rgba(0, 0, 0, 1);
-  }
-  p {
-    font-size: 24px;
-    font-weight: 500;
     margin: 0;
+    text-align: center;
   }
 
   h1 {
-    font-size: 52px;
+    font-size: 40px;
     font-weight: 700;
-    line-height: 56px;
-    margin: 0; 
+  }
+
+  h2 {
+    font-size: 20px;
+    font-weight: 500;
   }
 
 /* Tablet */
   @media (min-width: 768px) {
-    p {
-      font-size: 24px;
-    }
+    text-align: left;
 
     h1 {
-      font-size: 52px;
-      line-height: 100px;
+      font-size: 56px;
+    }
+
+    h2 {
+      font-size: 24px;
     }
   }   
 
   /* Desktop */
   @media (min-width: 1024px) {
-    max-width: 1100px;
-
-    p {
-      font-size: 30px;
-    }
-
     h1 {
-      font-size: 100px;
+      font-size: 80px;
     }
-  }
-`;
-
-const ContentWrapper = styled.div`
-  display: flex;
-  flex-direction: column;  /* h2 above the img */
-  align-items: center;
-  gap: 24px;
-
-  h2 {
-    text-align: center;
-    font-size: 20px;
-    margin: 0;
-  }
-
-  @media (min-width: 768px) {
-    flex-direction: column-reverse; /* h2 under the img */
 
     h2 {
-      text-align: center;
-      font-size: 24px;
-      margin-top: 24px;
-    }
-  }
-
-  @media (min-width: 1024px) {
-  flex-direction: column-reverse; /* h2 under the img */
-
-    h2 {
-      max-width: 1100px;
-      text-align: center;
       font-size: 30px;
-      margin-top: 40px;
     }
   }
 `;
 
 const ImageBox = styled.div`
-  position: relative; 
   width: 100%;
-  max-width: 315px;
-  margin: 0 auto;
-  aspect-ratio: 315 / 171; 
+  max-width: 220px;
   
-  img {
-    border-radius: 12px;
-    object-fit: cover;
-    position: absolute;
-    top:0;
-  }
-
-  /* place to the left and places child 1 behind the central img */ 
-  img:nth-child(1) {
-    left: 0;                      
-    transform: rotate(-5deg);
-    transform-origin: top right;
-    z-index: 1;  
-    width: 144px;
-    height: 154px;    
-  }
-    
-  /* central img */
-  img:nth-child(2) {
-    left: 50%; 
-    transform: translateX(-50%) rotate(0deg);   
-    transform-origin: center center;
-    z-index: 3;
-    width: 144px;
-    height: 154px;  
-  }
-
-  /* place to the right and places child 3 behind the central img */ 
-  img:nth-child(3) {
-    right: 0;                   
-    transform: rotate(5deg);
-    transform-origin: top left;
-    z-index: 1;
-    width: 144px;
-    height: 154px;                 
-  }
-    
   /* Tablet */
   @media (min-width: 768px) {
-      max-width: 500px;
-      aspect-ratio: 500 / 277;
-
-    img:nth-child(1) {
-        width: 260px;
-        height: 277px; 
-        left: -70px;
-    }
-
-    img:nth-child(2) {
-        width: 260px;
-        height: 277px; 
-    }
-
-    img:nth-child(3) {
-        width: 260px;
-        height: 277px;
-        right: -70px;
-    }
+      max-width: 320px;
   }
 
-    /* Desktop */
+  /* Desktop */
     @media (min-width: 1024px) {
-      max-width: 1100px;
-      aspect-ratio: 1100 / 382;
-
-      img:nth-child(1) {
-      width: 358px;
-      height: 382px;
-      left: 60px;
-    }
-
-    img:nth-child(2) {
-      width: 358px;
-      height: 382px;
-    }
-
-    img:nth-child(3) {
-      width: 358px;
-      height: 382px;
-      right: 60px ;
-    }
+      max-width: 420px;
   }
 `;
 
-const TextBoxInfo = styled.div`
-  font-size: 16px;
-  text-align: left;
-  gap: 24px;
-  width: 100%;
-  max-width: 1000px;
+const Avatar = styled.img`
+ width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  object-fit: cover;
 
-  @media (min-width: 768px) {
-    text-align: center;
-    max-width: 700px;
-    }
-
-  @media (min-width: 1024px) {
-    text-align: center;
-    max-width: 1000px;
-    font-size: 18px;
-  }
-}
+  border: 4px solid #fff;
+  outline: 3px solid #838293ff;
 `;
