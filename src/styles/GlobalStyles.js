@@ -9,16 +9,16 @@ export const GlobalStyles = createGlobalStyle`
 
 body {
   background: rgba(255, 255, 255, 1);
-  font-family: "poppins", sans-serif;
-  width: 100%;
+  font-family: "Montserrat", sans-serif;
+  width: 1200px;
+  margin: 0 auto; 
+  padding: 0 16px;
   scroll-behavior: smooth;
 }
 
 /* List without bullets */
   ul {
     list-style: none;
-    padding: 0;
-    margin: 0;
 }
 
 =======/* MEDIA QUERIES */ ========
@@ -26,15 +26,15 @@ body {
 /* Tablet */
 @media (min-width: 768px) and (max-width: 1024px) {
   body {
-  max-width: 774px;
+  padding: 0 32px;
   }
 
 }
 /* Desktop */
 @media (min-width: 1025px) {
   body {
-    max-width: 1600px;
-    margin: 0 auto;
+    max-width: 1400px;
+    padding: 0 48px;
 }
 
 h1 {
@@ -44,6 +44,5 @@ h1 {
 h2 {
   font-size: 80px;
 }
-
 }
 `;
