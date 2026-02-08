@@ -10,7 +10,7 @@ export const ProjectsSection = () => {
       <Title>Featured Projects</Title>
       <ProjectsGrid>
         {projects.map((project, index) => (
-          <ProjectCard key={index} project={project} />
+          <ProjectCard key={index} project={project} reverse={index % 2 === 1} />
         ))}
       </ProjectsGrid>
 
@@ -24,47 +24,46 @@ export const ProjectsSection = () => {
 
 const Wrapper = styled.section`
   width: 100%;
-  margin: 0 auto;
   padding: 64px 16px;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 64px;
 
+  @media (min-width: 768px) {
+    padding: 96px 24px;
+    max-width: 1184px;
+    margin: 0 auto; 
+  }
   /* Desktop */
   @media (min-width: 1024px) {
-    max-width: 1184px;
-    padding: 128px 128;
-    gap: 128px;
+    padding: 128px 24px;
+    gap: 80px;
   }
 `;
 
 const Title = styled.h2`
-  font-size: 48px;
-  font-weight: 700;
-  text-align: center;
-  color: rgba(0, 0, 0, 1);
+  font-size: 40px; 
+  text-align: center; 
 
   @media (min-width: 1024px) {
     font-size: 80px;
-    }
+  }
 `;
 
 const ProjectsGrid = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center;
   gap: 32px;
   width: 100%;
 
   /* Desktop */
   @media (min-width: 1024px) {
-    gap: 125px;
+    gap: 80px;
   }
 `;
 
 const SeeMoreButton = styled.button`
-  width: 271px;
   display: flex;
   align-items: center;
   gap: 16px;
