@@ -4,11 +4,32 @@ import IconWebSVG from "../assets/icon-web.svg";
 import IconGithubSVG from "../assets/icon-github.svg";
 
 export const ProjectCard = ({ project }) => {
-  const { title, description, tech, liveDemo, viewCode, image } = project;
+  const { title, description, tech, liveDemo, viewCode, image, images, deviceType } = project;
 
   return (
     <CardWrapper role="group" aria-label={`Project: ${title}`}>
-      <ProjectImage src={image} alt={`${title} picture showing project`} />
+      <ImageWrapper>
+        {images && images.length > 1 ? (
+          <ImageContainer>
+            {images.map((img, index) => (
+              <ProjectImage
+                key={index}
+                src={img}
+                alt={`${title} screenshot ${index + 1}`}
+                $deviceType={deviceType}
+                $multiple={true}
+              />
+            ))}
+          </ImageContainer>
+        ) : (
+          <ProjectImage
+            src={image || (images && images[0])}
+            alt={`${title} picture showing project`}
+            $deviceType={deviceType}
+          />
+        )}
+      </ImageWrapper>
+
       <ProjectInfo>
         <TechTags>
           {tech.map((item) => (
@@ -36,129 +57,210 @@ const CardWrapper = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 32px;
+  align-items: center;
+  gap: 24px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+
+  &:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+   /* Tablet */
+  @media (min-width: 768px) {
+    padding-bottom: 48px;
+  }
 
   /*  Desktop */
   @media (min-width: 1024px) {
     flex-direction: row;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
-    gap: 80px;
+    gap: 40px;
+    padding-bottom: 48px;
+  }
+`;
 
-    &:nth-child(even) {
-      flex-direction: row-reverse;
-    }
+const ImageWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  
+  /* Desktop */
+  @media (min-width: 1024px) {
+    width: 380px;
+    flex-shrink: 0;
+  }
+`;
+
+const ImageContainer = styled.div`
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+
+  @media (min-width: 768px) {
+    max-width: 480px;
+  }
+
+  @media (min-width: 1024px) {
+    max-width: 380px;
+    flex-shrink: 0;
   }
 `;
 
 const ProjectImage = styled.img`
   width: 100%;
-  max-width: 343px;
-  max-height: 479px;
-  border-radius: 12px;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  object-fit: cover;
+  border-radius: 8px;
+  object-fit: contain;
+  margin: 0 auto;
+
+  /* Mobile device images */
+  ${props => props.$deviceType === 'mobile' && `
+    aspect-ratio: 9 / 16;
+    max-width: ${props.$multiple ? '190px' : '220px'};
+  `}
+
+  /* Desktop images */
+  ${props => props.$deviceType === 'desktop' && `
+    aspect-ratio: 16 / 9;
+    max-width: 100%;
+  `}
 
   /* Tablet */
   @media (min-width: 768px) {
-    max-width: 696px;
-    margin: 0 auto;
-  }
+    ${props => props.$deviceType === 'mobile' && `
+      max-width: ${props.$multiple ? '200px' : '230px'};
+    `}
+    ${props => props.$deviceType === 'desktop' && `
+      max-width: 550px;
+    `}
 
-   /* Desktop */
+  /* Desktop */
   @media (min-width: 1024px) {
-    max-width: 479px;
     flex-shrink: 0;
+    
+    ${props => props.$deviceType === 'mobile' && `
+      aspect-ratio: 9 / 16;
+      max-width: ${props.$multiple ? '185px' : '210px'};
+    `}
+    ${props => props.$deviceType === 'desktop' && `
+      max-width: 380px;
+    `}
   }
 `;
 
 const ProjectInfo = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 32px;
+  align-items: center;
+  text-align: center;
+  gap: 16px;
   width: 100%;
 
   /* Tablet */
   @media (min-width: 768px) {
     align-items: flex-start;
     text-align: left;
-    width: 100%; 
-    margin: 0;
-    max-width: 479px;
+    max-width: 500px;
   }
 
   /* Desktop */
   @media (min-width: 1024px) {
-    max-width: 580px;
+    align-items: flex-start;
+    text-align: left;
+    max-width: 450px;
   }
 `;
 
 const TechTags = styled.ul`
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 6px;
+  justify-content: center;
+
+  /* Desktop */
+  @media (min-width: 1024px) {
+    justify-content: flex-start;
+  }
 `;
 
 const Tag = styled.li`
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-width: 71px;
-  min-height: 24px;
-  background: rgba(255, 255, 255, 1);
-  border: 1px solid rgba(0, 0, 0, 1);
-  border-radius: 4px;
-  padding: 2px 6px;
-  font-size: 16px;
+  padding: 4px 12px;
+  background: transparent;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
 `;
 
 const ProjectTitle = styled.h3`
-  font-size: 24px;
+  font-size: 22px;
   font-weight: 500;
+  line-height: 1.3;
 
   /* Desktop */
   @media (min-width: 1024px) {
-    font-size: 30px;
+    font-size: 24px;
   }
 `;
 
 const ProjectDescription = styled.p`
-  font-size: 16px;
-  line-height: 1.4;
+  font-size: 15px;
+  line-height: 1.5;
 
   /* Desktop */
   @media (min-width: 1024px) {
-    font-size: 18px;
+    font-size: 15px;
   }
 `;
 
 const Buttons = styled.div`
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 12px;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+
+   /* Desktop */
+  @media (min-width: 1024px) {
+    align-items: flex-start;
+  }
 `;
 
 const ButtonPrimary = styled.a`
   display: inline-flex;
-  align-items: flex-start;
-  justify-content: flex-start;
-  width: 303px;
-
-  padding: 12px 16px;
-  border-radius: 12px;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 20px;
+  border-radius: 8px;
   background: rgba(0, 0, 0, 1);
   color: rgba(255, 255, 255, 1);
   text-decoration: none;
   font-weight: 500;
+  font-size: 14px;
+  transition: background 0.2s ease;
 
   &:hover {
-    opacity: 0.9;
+    background: rgba(0, 0, 0, 0.8);
+  }
+
+  &:focus-visible {
+    outline: 3px solid #f39c12;
+    outline-offset: 2px;
   }
 `;
 
 const Icon = styled.img`
-  width: 31px;
-  height: 31px;
+  width: 20px;
+  height: 20px;
   margin-right: 8px;
 `;
