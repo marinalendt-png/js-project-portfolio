@@ -10,10 +10,11 @@ export const GlobalStyles = createGlobalStyle`
 body {
   background: rgba(255, 255, 255, 1);
   font-family: "Montserrat", sans-serif;
-  width: 1200px;
-  margin: 0 auto; 
-  padding: 0 16px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0;
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 /* List without bullets */
@@ -21,28 +22,10 @@ body {
     list-style: none;
 }
 
-=======/* MEDIA QUERIES */ ========
-
-/* Tablet */
-@media (min-width: 768px) and (max-width: 1024px) {
-  body {
-  padding: 0 32px;
-  }
-
-}
 /* Desktop */
 @media (min-width: 1025px) {
   body {
-    max-width: 1400px;
-    padding: 0 48px;
-}
-
-h1 {
-  font-size: 100px;
-}
-
-h2 {
-  font-size: 80px;
-}
+    max-width: 1600px;
+  }
 }
 `;
