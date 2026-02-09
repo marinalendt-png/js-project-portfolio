@@ -1,19 +1,34 @@
 import React from "react";
 import styled from "styled-components";
-import picture1 from "../assets/picture1.jpg";
 import picture2 from "../assets/picture2.jpg";
-import picture3 from "../assets/picture3.jpg";
+import ButtonLinkedInSVG from "../assets/btn-linkedin.svg";
+import ButtonGithubSVG from "../assets/btn-github.svg";
+import ButtonInstagramSVG from "../assets/btn-instagram.svg";
 
 export const HeaderSection = () => {
   return (
     <Wrapper>
-      <TextBox>
-        <h1>Marina Lendt</h1>
-        <h2>Frontend Developer</h2>
-      </TextBox>
       <ImageBox>
         <Avatar src={picture2} alt="Profile picture" />
       </ImageBox>
+      <TextBox>
+        <h1>Marina Lendt</h1>
+        <h2>Frontend Developer</h2>
+        <Intro>
+          Passionate about teamwork, loves problem solving and wants to create user-friendly, accessible web experiences.
+        </Intro>
+        <SocialLinks>
+          <SocialButton href="https://www.linkedin.com/in/marina-lendt-1b3439194" aria-label="Visit me on LinkedIn" target="_blank" rel="noopener noreferrer">
+            <img src={ButtonLinkedInSVG} alt="LinkedIn" />
+          </SocialButton>
+          <SocialButton href="https://github.com/dashboard" aria-label="Visit me on Github" target="_blank" rel="noopener noreferrer">
+            <img src={ButtonGithubSVG} alt="Github" />
+          </SocialButton>
+          <SocialButton href="https://www.instagram.com/marinalendt/" aria-label="Visit me on Instagram" target="_blank" rel="noopener noreferrer">
+            <img src={ButtonInstagramSVG} alt="Instagram" />
+          </SocialButton>
+        </SocialLinks>
+      </TextBox>
     </Wrapper>
   );
 };
@@ -23,21 +38,21 @@ const Wrapper = styled.section`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 24px;
-  padding: 64px 16px;
+  gap: 32px;
+  padding: 80px 16px;
   width: 100%;
+  background: rgba(255, 255, 255, 1);
 
   /* Tablet */
   @media (min-width: 768px) {
-    flex-direction: row;
-    align-items: center;
-    padding: 96px 24px;
-    gap: 48p;x;
+    flex-direction: row-reverse;
+    padding: 100px 24px;
+    gap: 48px;
   }
 
   /* Desktop */
   @media (min-width: 1024px) {
-    padding: 128px 0 64px 0;
+    padding: 120px 48px 80px 48px;
     gap: 80px;
   }
 `;
@@ -63,12 +78,17 @@ const TextBox = styled.div`
 
   h2 {
     font-size: 20px;
-    font-weight: 500;
+    font-weight: 400;
+    letter-spacing: 0.05em;
   }
 
-/* Tablet */
+  /* Tablet */
   @media (min-width: 768px) {
     text-align: left;
+
+    h1, h2 {
+      text-align: left;
+    }
 
     h1 {
       font-size: 56px;
@@ -77,41 +97,80 @@ const TextBox = styled.div`
     h2 {
       font-size: 24px;
     }
-  }   
+  }
 
   /* Desktop */
   @media (min-width: 1024px) {
     h1 {
-      font-size: 80px;
+      font-size: 72px;
     }
 
     h2 {
-      font-size: 30px;
+      font-size: 28px;
     }
+  }
+`;
+
+const Intro = styled.p`
+  font-size: 16px;
+  line-height: 1.6;
+  color: rgba(0, 0, 0, 0.6);
+
+  @media (min-width: 768px) {
+    font-size: 18px;
+  }
+`;
+
+const SocialLinks = styled.div`
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+
+  @media (min-width: 768px) {
+    justify-content: flex-start;
+  }
+`;
+
+const SocialButton = styled.a`
+  padding: 6px;
+  transition: opacity 0.2s ease;
+
+  img {
+    filter: invert(1);
+  }
+
+  &:hover {
+    opacity: 0.7;
+  }
+
+  &:focus-visible {
+    outline: 3px solid #f39c12;
+    outline-offset: 2px;
   }
 `;
 
 const ImageBox = styled.div`
-  width: 100%;
-  max-width: 220px;
-  
-  /* Tablet */
-  @media (min-width: 768px) {
-      max-width: 320px;
-  }
-
-  /* Desktop */
-    @media (min-width: 1024px) {
-      max-width: 420px;
-  }
+  display: flex;
+  justify-content: center;
 `;
 
 const Avatar = styled.img`
- width: 180px;
-  height: 180px;
+  width: 200px;
+  height: 200px;
   border-radius: 50%;
   object-fit: cover;
-
   border: 4px solid #fff;
   outline: 3px solid #838293ff;
+
+  /* Tablet */
+  @media (min-width: 768px) {
+    width: 260px;
+    height: 260px;
+  }
+
+  /* Desktop */
+  @media (min-width: 1024px) {
+    width: 300px;
+    height: 300px;
+  }
 `;
