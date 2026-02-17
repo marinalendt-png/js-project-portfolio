@@ -19,7 +19,7 @@ export const ProjectsSection = () => {
 
 const Wrapper = styled.section`
   width: 100%;
-  padding: 48px 24px;
+  padding: 48px 32px;
   display: flex;
   flex-direction: column;
   align-items: center;

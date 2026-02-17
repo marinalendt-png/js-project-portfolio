@@ -230,11 +230,13 @@ const Buttons = styled.div`
   align-items: center;
   gap: 10px;
   width: 100%;
+  align-self: center;
 
    /* Desktop */
   @media (min-width: 1024px) {
     justify-content: flex-start;
     align-items: flex-start;
+    align-self: flex-start;
   }
 `;
 
