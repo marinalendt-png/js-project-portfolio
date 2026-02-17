@@ -41,8 +41,9 @@ const CardWrapper = styled.article`
 `;
 
 const ImageBox = styled.div`
-  width: 327px;
-  height: 200px; 
+  width: 100%;
+  max-width: 327px;
+  height: 200px;
   flex-shrink: 0;
 
   /* Tablet */
@@ -118,7 +119,8 @@ const CardText = styled.p`
 `;
 
 const ReadButton = styled.a`
-  width: 271px;
+  max-width: 271px;
+  width: 100%;
   height: 48px;
   display: inline-flex;
   text-align: center;
