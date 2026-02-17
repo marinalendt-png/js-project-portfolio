@@ -226,12 +226,14 @@ const ProjectDescription = styled.p`
 const Buttons = styled.div`
   display: flex;
   flex-direction: row;
+  justify-content: center;
   align-items: center;
   gap: 10px;
   width: 100%;
 
    /* Desktop */
   @media (min-width: 1024px) {
+    justify-content: flex-start;
     align-items: flex-start;
   }
 `;
