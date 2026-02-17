@@ -54,6 +54,8 @@ const Wrapper = styled.section`
   @media (min-width: 1024px) {
     padding: 120px 48px 80px 48px;
     gap: 80px;
+    max-width: 1600px;
+    margin: 0 auto;
   }
 `;
 

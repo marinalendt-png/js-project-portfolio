@@ -22,10 +22,4 @@ body {
     list-style: none;
 }
 
-/* Desktop */
-@media (min-width: 1025px) {
-  body {
-    max-width: 1600px;
-  }
-}
 `;

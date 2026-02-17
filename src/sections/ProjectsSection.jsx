@@ -33,6 +33,8 @@ const Wrapper = styled.section`
   @media (min-width: 1024px) {
     padding: 72px 32px;
     gap: 56px;
+    max-width: 1600px;
+    margin: 0 auto;
   }
 `;
 
